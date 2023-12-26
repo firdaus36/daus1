@@ -1,90 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Special Day</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fce8ff;
-      color: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Diary</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    header {
-      background-color: #ff69b4;
-      padding: 30px;
-      text-align: center;
-      color: #fff;
-      font-size: 36px;
-    }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
 
-    section {
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
+        .entry {
+            margin-bottom: 30px;
+        }
 
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-    }
+        .date {
+            color: #666;
+        }
 
-    .love-message {
-      font-size: 24px;
-      color: #ff69b4;
-      text-align: center;
-      margin-top: 20px;
-    }
+        .content {
+            margin-top: 10px;
+            line-height: 1.6;
+        }
 
-    footer {
-      background-color: #ff69b4;
-      color: #fff;
-      padding: 10px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
-  </style>
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px;
+            margin: 0 10px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>To the most beautiful woman</h1>
-  </header>
+    <h1>My Diary</h1>
 
-  <section>
-    <p>
-      Hi Puteri,
-    </p>
-    <p>
-      Even though you'll be busy with work today, I just wanted to let you know how incredibly proud I am of you. 
-    </p>
-    <p>
-      sepanjang i kenal you. you seorang yang sangat serbe boleh dri jage diri, keluarga dan kerjaya. Tak semua orang boleh buat semua tu . I know it must be very tired.
-      But i never see you complain about it(in bad ways). Mungkin sebab ni i rase nk kenal you lebih lagi. I will try my best to get know you.  
-    </p>
-    <p>
-      I understand that one of your love languages is words of affirmation. I'm still learning how to express in words, and it might take me some time. Please bear with me as I work on improving. 
-    </p>
-    <p>
-      I understand that you're busy, and I completely respect that, so please don't worry. I acknowledge that we both have work commitments. However, if there's anything on your mind, please feel free to share it with me.
-    </p>
-    <p class="love-message">
-      With all my love and affection,
-      <br>
-      Firdaus
-    </p>
-  </section>
+    <div class="entry" id="entry1">
+        <div class="date">December 26, 2023</div>
+        <div class="content">
+            <p>Today, I had a great day! Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        </div>
+    </div>
 
-  <footer>
-    <p>Created with ❤️</p>
-  </footer>
+    <div class="entry" id="entry2">
+        <div class="date">December 27, 2023</div>
+        <div class="content">
+            <p>Another day, another entry. It rained today, and I spent the afternoon reading a good book...</p>
+        </div>
+    </div>
+
+    <!-- Add more entries as needed -->
+
+    <div class="navigation">
+        <a href="#" class="btn" onclick="prevEntry()">Previous</a>
+        <a href="#" class="btn" onclick="nextEntry()">Next</a>
+    </div>
+
+    <script>
+        var currentEntry = 1;
+
+        function showEntry(entryNumber) {
+            // Hide all entries
+            var entries = document.querySelectorAll('.entry');
+            entries.forEach(function(entry) {
+                entry.style.display = 'none';
+            });
+
+            // Show the selected entry
+            var currentEntryId = 'entry' + entryNumber;
+            var currentEntryElement = document.getElementById(currentEntryId);
+            if (currentEntryElement) {
+                currentEntryElement.style.display = 'block';
+            }
+        }
+
+        function prevEntry() {
+            if (currentEntry > 1) {
+                currentEntry--;
+                showEntry(currentEntry);
+            }
+        }
+
+        function nextEntry() {
+            // You can update this value based on the number of entries you have
+            var totalEntries = 2;
+
+            if (currentEntry < totalEntries) {
+                currentEntry++;
+                showEntry(currentEntry);
+            }
+        }
+
+        // Show the initial entry
+        showEntry(currentEntry);
+    </script>
 
 </body>
 </html>
